@@ -8,12 +8,13 @@
 }
 
 /* =========================
-   BODY – GOLD LUXE
+   BODY – CYBER NEON PURPLE
 ========================= */
 body {
   font-family: 'Russo One', sans-serif;
-  background: radial-gradient(circle at top, #4a320a, #120b02);
-  color: #fff2cc;
+  background:
+    radial-gradient(circle at top, #14001f, #07000d 60%, #030006);
+  color: #e9d7ff;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -25,8 +26,8 @@ body {
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(120deg, rgba(255,215,120,0.25), transparent 45%),
-    linear-gradient(-120deg, rgba(180,130,40,0.18), transparent 45%);
+    linear-gradient(120deg, rgba(180, 70, 255, 0.25), transparent 45%),
+    linear-gradient(-120deg, rgba(80, 0, 150, 0.25), transparent 45%);
   z-index: -1;
 }
 
@@ -67,18 +68,18 @@ body {
 }
 
 /* =========================
-   CONTENT BOX (GLASS GOLD)
+   CONTENT BOX (GLASS NEON)
 ========================= */
 .content-box {
-  background: rgba(35, 24, 8, 0.78);
+  background: rgba(20, 5, 35, 0.78);
   backdrop-filter: blur(22px);
   border-radius: 24px;
   padding: 26px;
   text-align: center;
   box-shadow:
-    0 0 45px rgba(255,215,120,0.6),
-    inset 0 0 28px rgba(255,230,170,0.18);
-  border: 1px solid rgba(255,215,120,0.35);
+    0 0 45px rgba(170, 70, 255, 0.7),
+    inset 0 0 28px rgba(200, 120, 255, 0.18);
+  border: 1px solid rgba(180, 80, 255, 0.35);
 }
 
 .content-box.big {
@@ -91,7 +92,7 @@ body {
 .logo {
   width: 100%;
   margin-bottom: 26px;
-  filter: drop-shadow(0 0 28px #f5d27a);
+  filter: drop-shadow(0 0 30px #b86bff);
 }
 
 /* =========================
@@ -105,18 +106,18 @@ input {
   border: none;
   outline: none;
   font-size: 16px;
-  background: rgba(15, 10, 2, 0.75);
-  color: #ffe6a8;
+  background: rgba(10, 0, 20, 0.85);
+  color: #f2e6ff;
   text-align: center;
-  box-shadow: inset 0 0 18px rgba(255,215,120,0.35);
+  box-shadow: inset 0 0 18px rgba(170, 70, 255, 0.4);
 }
 
 input::placeholder {
-  color: #e6c87a;
+  color: #caa8ff;
 }
 
 /* =========================
-   BUTTON – ORO PREMIUM
+   BUTTON – NEON
 ========================= */
 button {
   margin-top: 24px;
@@ -126,17 +127,17 @@ button {
   border: none;
   font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(135deg, #f5d27a, #b8872f);
-  color: #2a1a05;
+  background: linear-gradient(135deg, #c86bff, #6a00ff);
+  color: white;
   text-transform: uppercase;
   letter-spacing: 1.6px;
-  box-shadow: 0 0 40px rgba(255,215,120,0.95);
+  box-shadow: 0 0 40px rgba(180, 70, 255, 0.95);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 button:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 65px rgba(255,230,150,1);
+  box-shadow: 0 0 65px rgba(200, 120, 255, 1);
 }
 
 /* =========================
@@ -145,8 +146,8 @@ button:hover {
 h2 {
   margin-bottom: 16px;
   font-size: 22px;
-  color: #ffe6a8;
-  text-shadow: 0 0 20px rgba(255,215,120,1);
+  color: #f2d8ff;
+  text-shadow: 0 0 20px #b86bff;
 }
 
 p {
@@ -166,19 +167,19 @@ p {
 }
 
 /* =========================
-   CARD – GOLD METAL
+   CARD – CYBER METAL
 ========================= */
 .card {
-  background: linear-gradient(145deg, #3a2608, #1a1205);
+  background: linear-gradient(145deg, #2b0a40, #12001f);
   border-radius: 18px;
   padding: 8px;
   cursor: pointer;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow:
-    0 0 22px rgba(255,215,120,0.6),
-    inset 0 0 14px rgba(255,230,170,0.22);
-  border: 1px solid rgba(255,215,120,0.35);
+    0 0 22px rgba(170, 70, 255, 0.7),
+    inset 0 0 14px rgba(200, 120, 255, 0.22);
+  border: 1px solid rgba(180, 80, 255, 0.35);
 }
 
 .card img {
@@ -188,28 +189,28 @@ p {
 
 .card:hover {
   transform: translateY(-8px) scale(1.08);
-  box-shadow: 0 0 55px rgba(255,230,150,1);
+  box-shadow: 0 0 55px rgba(200, 120, 255, 1);
 }
 
 .card.selected {
-  outline: 3px solid #ffe6a8;
+  outline: 3px solid #d79cff;
   box-shadow:
-    0 0 70px rgba(255,230,150,1),
-    inset 0 0 30px rgba(255,240,190,0.9);
+    0 0 70px rgba(200, 120, 255, 1),
+    inset 0 0 30px rgba(220, 160, 255, 0.9);
 }
 
 /* =========================
-   SPINNER – GOLD
+   SPINNER – NEON
 ========================= */
 .spinner {
   width: 72px;
   height: 72px;
   border-radius: 50%;
   margin: 22px auto;
-  border: 6px solid rgba(255,255,255,0.18);
-  border-top: 6px solid #f5d27a;
+  border: 6px solid rgba(255,255,255,0.12);
+  border-top: 6px solid #b86bff;
   animation: spin 1.3s linear infinite;
-  box-shadow: 0 0 40px rgba(255,215,120,1);
+  box-shadow: 0 0 40px rgba(180, 70, 255, 1);
 }
 
 @keyframes spin {
@@ -223,7 +224,7 @@ p {
 ========================= */
 #loadingText {
   margin-top: 14px;
-  color: #ffe6a8;
+  color: #e9d7ff;
   font-size: 15px;
   letter-spacing: 1.1px;
 }
