@@ -1,5 +1,5 @@
 /* =========================
-   RESET & BASE
+   RESET & BASE (GAMER VIBES)
 ========================= */
 * {
   margin: 0;
@@ -8,16 +8,18 @@
 }
 
 body {
-  font-family: 'Outfit', sans-serif; /* Una fuente más moderna y redonda */
-  background-color: #050505;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background-color: #080808;
+  /* Fondo con profundidad: un toque de color en las esquinas */
   background-image: 
-    radial-gradient(at 0% 0%, rgba(20, 20, 20, 1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, rgba(30, 30, 30, 1) 0, transparent 50%);
-  color: #ffffff;
+    radial-gradient(circle at 10% 20%, rgba(98, 0, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 255, 234, 0.1) 0%, transparent 40%);
+  color: #e0e0e0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -25,148 +27,166 @@ body {
 ========================= */
 .container {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   padding: 20px;
+  perspective: 1000px;
 }
 
 .section {
   display: none;
   flex-direction: column;
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: gamerSlide 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .section.active {
   display: flex;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes gamerSlide {
+  from { opacity: 0; transform: scale(0.9) translateY(40px); filter: blur(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
 }
 
 /* =========================
-   CONTENT BOX (STEALTH CARD)
+   CONTENT BOX (CYBER CARD)
 ========================= */
 .content-box {
-  background: linear-gradient(145deg, #0f0f0f, #151515);
-  border: 1px solid #222;
-  border-radius: 32px;
-  padding: 40px 24px;
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 40px 28px;
   text-align: center;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoración superior (Línea de neón) */
+.content-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, transparent, #6200ff, #00ffea, transparent);
 }
 
 /* =========================
    TITLES & TEXT
 ========================= */
 h2 {
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  margin-bottom: 8px;
-  background: linear-gradient(to bottom, #fff 0%, #888 100%);
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #fff 30%, #6200ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(98, 0, 255, 0.3));
 }
 
 p {
-  color: #666;
-  font-size: 15px;
-  line-height: 1.6;
+  color: #999;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 /* =========================
-   INPUT (LUXURY BLACK)
+   INPUT (NEON FOCUS)
 ========================= */
 input {
   width: 100%;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 16px;
+  padding: 18px;
+  margin-top: 25px;
+  border-radius: 14px;
   border: 1px solid #222;
-  background: #000000;
-  color: #fff;
-  font-size: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #00ffea;
+  font-family: 'Courier New', monospace; /* Toque hacker */
+  font-size: 18px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 input:focus {
   outline: none;
-  border-color: #444;
-  background: #0a0a0a;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
+  border-color: #00ffea;
+  box-shadow: 0 0 20px rgba(0, 255, 234, 0.15);
+  background: #050505;
 }
 
 /* =========================
-   BUTTON (ELITE ACCENT)
+   BUTTON (PRO GAMER)
 ========================= */
 button {
   margin-top: 24px;
   width: 100%;
-  padding: 20px;
-  border-radius: 16px;
+  padding: 18px;
+  border-radius: 14px;
   border: none;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   cursor: pointer;
-  /* Color de acento: Prueba #d4af37 (Oro) o #00ff88 (Esmeralda) */
-  background: #ffffff;
+  background: linear-gradient(135deg, #6200ff 0%, #00ffea 100%);
   color: #000;
+  box-shadow: 0 10px 20px rgba(98, 0, 255, 0.3);
   transition: all 0.3s ease;
 }
 
 button:hover {
-  transform: scale(1.02);
-  background: #e0e0e0;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(98, 0, 255, 0.5);
+  filter: brightness(1.1);
 }
 
 button:active {
-  transform: scale(0.98);
+  transform: translateY(1px);
 }
 
 /* =========================
-   CARDS GRID (MINIMAL DARK)
+   CARDS GRID (EQUIPMENT STYLE)
 ========================= */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 15px;
   margin-top: 30px;
 }
 
 .card {
-  background: #111;
-  border-radius: 20px;
-  padding: 8px;
-  border: 1px solid #1a1a1a;
-  transition: all 0.4s ease;
+  background: #151515;
+  border-radius: 18px;
+  padding: 10px;
+  border: 1px solid #252525;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .card img {
   width: 100%;
-  border-radius: 14px;
-  opacity: 0.6;
-  filter: grayscale(1);
-  transition: all 0.4s ease;
+  border-radius: 12px;
+  opacity: 0.4;
+  filter: grayscale(1) contrast(1.2);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  border-color: #444;
-  background: #181818;
+  border-color: #6200ff;
+  transform: translateY(-5px);
+  background: #1a1a1a;
 }
 
 .card:hover img {
-  opacity: 1;
-  filter: grayscale(0);
-}
-.logo{
-  width: 100%;
+  opacity: 0.8;
+  filter: grayscale(0.5);
 }
 
 .card.selected {
-  border-color: #fff;
-  background: #1a1a1a;
+  border-color: #00ffea;
+  background: rgba(0, 255, 234, 0.05);
+  box-shadow: 0 0 20px rgba(0, 255, 234, 0.2);
 }
 
 .card.selected img {
@@ -175,16 +195,18 @@ button:active {
 }
 
 /* =========================
-   SPINNER (ELEGANT)
+   SPINNER (PLASMA)
 ========================= */
 .spinner {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   margin: 30px auto;
-  border: 2px solid #222;
-  border-top-color: #fff;
+  border: 3px solid rgba(98, 0, 255, 0.1);
+  border-top-color: #00ffea;
+  border-right-color: #6200ff;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 0.6s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+  filter: drop-shadow(0 0 10px #00ffea);
 }
 
 @keyframes spin {
@@ -192,9 +214,17 @@ button:active {
 }
 
 #loadingText {
-  color: #fff;
-  font-size: 12px;
-  letter-spacing: 4px;
+  color: #00ffea;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  opacity: 0.5;
+  text-shadow: 0 0 10px rgba(0, 255, 234, 0.5);
+}
+
+/* Logo extra styling */
+.logo {
+  max-width: 180px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
