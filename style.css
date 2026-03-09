@@ -60,6 +60,7 @@ body {
   overflow: hidden;
 }
 
+
 /* Línea decorativa superior con degradado de oro */
 .content-box::before {
   content: "";
@@ -181,7 +182,7 @@ button:hover {
 }
 
 .logo {
-  width: 120px; /* Tamaño ajustado para que luzca bien */
+  width: 80%;
   margin: 0 auto 15px;
   display: block;
 }
