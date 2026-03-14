@@ -1,5 +1,5 @@
 /* =========================
-   RESET & BASE (EFOOTBALL PREMIUM VIBES)
+   RESET & BASE (CYBERPUNK TECH VIBES)
 ========================= */
 * {
   margin: 0;
@@ -8,17 +8,19 @@
 }
 
 body {
-  font-family: 'Outfit', 'Inter', sans-serif;
-  /* Fondo oscuro tipo interfaz de juego con destellos dorados */
-  background-image: 
-    radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(184, 134, 11, 0.1) 0%, transparent 40%);
-  color: #ffffff;
+  font-family: 'Outfit', 'Syncopate', sans-serif;
+  /* Fondo oscuro profundo con un degradado radial de "neón" */
+  background: radial-gradient(circle at center, #1a1b26 0%, #0a0b10 100%);
+  color: #e0e0e0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
+  /* Efecto de líneas de escaneo sutiles */
+  background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                    linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  background-size: 100% 4px, 3px 100%;
 }
 
 /* =========================
@@ -28,122 +30,127 @@ body {
   width: 100%;
   max-width: 420px;
   padding: 20px;
+  perspective: 1000px; /* Para efectos 3D */
 }
 
 .section {
   display: none;
   flex-direction: column;
-  animation: gamerSlide 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Animación de entrada "Glitch" suave */
+  animation: cyberFade 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .section.active {
   display: flex;
 }
 
-@keyframes gamerSlide {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.logo{
+  width: 100%;
+}
+
+@keyframes cyberFade {
+  from { opacity: 0; transform: scale(0.9) rotateX(-10deg); filter: brightness(2); }
+  to { opacity: 1; transform: scale(1) rotateX(0); filter: brightness(1); }
 }
 
 /* =========================
-   CONTENT BOX (GOLD PREMIUM CARD)
+   CONTENT BOX (GLASSMORPHISM NEON)
 ========================= */
 .content-box {
-  backdrop-filter: blur(15px);
-  /* Borde dorado sutil */
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 32px;
+  background: rgba(15, 15, 25, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 243, 255, 0.2); /* Borde Cian */
+  border-radius: 20px;
   padding: 40px 28px;
   text-align: center;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 
+              inset 0 0 15px rgba(0, 243, 255, 0.05);
   position: relative;
-  overflow: hidden;
 }
 
-
-/* Línea decorativa superior con degradado de oro */
-.content-box::before {
+/* Esquinas decorativas tecnológicas */
+.content-box::after {
   content: "";
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 5px;
-  background: linear-gradient(90deg, #b8860b, #f3e07e, #b8860b);
+  bottom: 0; right: 0;
+  width: 20px; height: 20px;
+  border-right: 3px solid #00f3ff;
+  border-bottom: 3px solid #00f3ff;
+  border-radius: 0 0 20px 0;
 }
 
 /* =========================
    TITLES & TEXT
 ========================= */
 h2 {
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 24px;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   margin-bottom: 8px;
-  /* Gradiente dorado metálico en el texto */
-  background: linear-gradient(135deg, #f3e07e 0%, #b8860b 50%, #d4af37 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+  color: #00f3ff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.2);
 }
 
 p {
-  color: #aaa;
-  font-size: 14px;
-  font-weight: 400;
+  color: #8892b0;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 /* =========================
-   INPUT (DARK MODE PREMIUM)
+   INPUT (TECH TERMINAL STYLE)
 ========================= */
 input {
   width: 100%;
   padding: 16px;
   margin-top: 25px;
-  border-radius: 16px;
-  border: 2px solid #333;
-  background: #1a1a1a;
-  color: #fff;
-  font-family: 'Outfit', sans-serif;
+  border-radius: 8px;
+  border: 1px solid #2a2d3e;
+  background: #0f111a;
+  color: #00f3ff;
+  font-family: 'Courier New', monospace; /* Estilo código */
   font-size: 18px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 input:focus {
   outline: none;
-  border-color: #d4af37;
-  background: #222;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  border-color: #00f3ff;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
 }
 
 /* =========================
-   BUTTON (GOLD METALLIC)
+   BUTTON (NEON PULSE)
 ========================= */
 button {
   margin-top: 24px;
   width: 100%;
   padding: 18px;
-  border-radius: 16px;
+  border-radius: 8px;
   border: none;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   cursor: pointer;
-  /* El botón ahora es el elemento que más destaca en dorado */
-  background: linear-gradient(135deg, #d4af37, #b8860b);
-  color: #000; /* Texto negro para contraste máximo sobre oro */
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: #00f3ff;
+  color: #000;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 button:hover {
-  background: linear-gradient(135deg, #f3e07e, #d4af37);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+  transform: translateY(-3px);
 }
 
 /* =========================
-   CARDS GRID (EFOOTBALL STYLE)
+   CARDS GRID (HOLOGRAM STYLE)
 ========================= */
 .cards-grid {
   display: grid;
@@ -153,51 +160,44 @@ button:hover {
 }
 
 .card {
-  background: #111;
-  border-radius: 16px;
-  padding: 8px;
-  border: 1px solid #333;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background: rgba(0, 243, 255, 0.05);
+  border-radius: 12px;
+  padding: 6px;
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card img {
   width: 100%;
-  border-radius: 10px;
-  display: block;
+  border-radius: 8px;
+  filter: grayscale(40%) contrast(1.2);
 }
 
 .card:hover {
-  border-color: #d4af37;
-  transform: scale(1.08);
-  background: #1a1a1a;
+  border-color: #00f3ff;
+  background: rgba(0, 243, 255, 0.15);
+  transform: translateY(-5px) scale(1.05);
 }
 
-/* ESTADO SELECCIONADO: Brillo dorado intenso */
 .card.selected {
-  border-color: #f3e07e;
-  background: rgba(212, 175, 55, 0.1);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-  transform: scale(1.05);
-}
-
-.logo {
-  width: 80%;
-  margin: 0 auto 15px;
-  display: block;
+  border-color: #00f3ff;
+  background: rgba(0, 243, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.4);
+  filter: brightness(1.2);
 }
 
 /* =========================
-   SPINNER (GOLDEN)
+   SPINNER (CYBER SCANNER)
 ========================= */
 .spinner {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 30px auto;
-  border: 4px solid rgba(212, 175, 55, 0.1);
-  border-top-color: #d4af37;
+  border: 2px solid transparent;
+  border-left: 2px solid #00f3ff;
+  border-right: 2px solid #bd00ff; /* Toque morado */
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 1s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
 }
 
 @keyframes spin {
@@ -205,10 +205,8 @@ button:hover {
 }
 
 #loadingText {
-  color: #d4af37;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  color: #00f3ff;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
 }
