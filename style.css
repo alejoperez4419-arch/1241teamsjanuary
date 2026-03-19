@@ -1,26 +1,23 @@
 /* =========================
-   RESET & BASE (CYBERPUNK TECH VIBES)
+   RESET & BASE (CLEAN TECH VIBES)
 ========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body {
-  font-family: 'Outfit', 'Syncopate', sans-serif;
-  /* Fondo oscuro profundo con un degradado radial de "neón" */
-  background: radial-gradient(circle at center, #1a1b26 0%, #0a0b10 100%);
-  color: #e0e0e0;
+  font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+  /* Fondo claro con un suave degradado sutil */
+  background: radial-gradient(circle at top right, #f8faff 0%, #eef2f7 100%);
+  color: #2d3436;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-  /* Efecto de líneas de escaneo sutiles */
-  background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                    linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-  background-size: 100% 4px, 3px 100%;
 }
 
 /* =========================
@@ -29,175 +26,177 @@ body {
 .container {
   width: 100%;
   max-width: 420px;
-  padding: 20px;
-  perspective: 1000px; /* Para efectos 3D */
+  padding: 24px;
 }
 
 .section {
   display: none;
   flex-direction: column;
-  /* Animación de entrada "Glitch" suave */
-  animation: cyberFade 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Animación suave de elevación */
+  animation: softFade 0.5s ease-out;
 }
 
 .section.active {
   display: flex;
 }
 
-.logo{
+.logo {
   width: 100%;
+  max-width: 180px;
+  margin: 0 auto 10px;
 }
 
-@keyframes cyberFade {
-  from { opacity: 0; transform: scale(0.9) rotateX(-10deg); filter: brightness(2); }
-  to { opacity: 1; transform: scale(1) rotateX(0); filter: brightness(1); }
+@keyframes softFade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
-   CONTENT BOX (GLASSMORPHISM NEON)
+   CONTENT BOX (MODERN GLASS)
 ========================= */
 .content-box {
-  background: rgba(15, 15, 25, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 243, 255, 0.2); /* Borde Cian */
-  border-radius: 20px;
-  padding: 40px 28px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  padding: 45px 30px;
   text-align: center;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 
-              inset 0 0 15px rgba(0, 243, 255, 0.05);
+  /* Sombra suave y profunda */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 
+              0 5px 15px rgba(0, 0, 0, 0.02);
   position: relative;
 }
 
-/* Esquinas decorativas tecnológicas */
-.content-box::after {
+/* Detalle decorativo minimalista */
+.content-box::before {
   content: "";
   position: absolute;
-  bottom: 0; right: 0;
-  width: 20px; height: 20px;
-  border-right: 3px solid #00f3ff;
-  border-bottom: 3px solid #00f3ff;
-  border-radius: 0 0 20px 0;
+  top: 15px; left: 50%;
+  transform: translateX(-50%);
+  width: 40px; height: 4px;
+  background: #e0e6ed;
+  border-radius: 10px;
 }
 
 /* =========================
    TITLES & TEXT
 ========================= */
 h2 {
-  font-size: 24px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 8px;
-  color: #00f3ff;
-  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.2);
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
 }
 
 p {
-  color: #8892b0;
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 1px;
+  color: #636e72;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 /* =========================
-   INPUT (TECH TERMINAL STYLE)
+   INPUT (SOFT INTERFACE)
 ========================= */
 input {
   width: 100%;
-  padding: 16px;
-  margin-top: 25px;
-  border-radius: 8px;
-  border: 1px solid #2a2d3e;
-  background: #0f111a;
-  color: #00f3ff;
-  font-family: 'Courier New', monospace; /* Estilo código */
+  padding: 18px;
+  margin-top: 30px;
+  border-radius: 15px;
+  border: 2px solid #edf2f7;
+  background: #fdfdfd;
+  color: #2d3436;
+  font-family: inherit;
   font-size: 18px;
   text-align: center;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 input:focus {
   outline: none;
-  border-color: #00f3ff;
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+  border-color: #4834d4;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(72, 52, 212, 0.05);
 }
 
 /* =========================
-   BUTTON (NEON PULSE)
+   BUTTON (ROYAL BLUE)
 ========================= */
 button {
-  margin-top: 24px;
+  margin-top: 25px;
   width: 100%;
-  padding: 18px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 15px;
   border: none;
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-  background: #00f3ff;
-  color: #000;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+  background: #4834d4; /* Azul vibrante elegante */
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(72, 52, 212, 0.2);
 }
 
 button:hover {
-  background: #fff;
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
-  transform: translateY(-3px);
+  background: #3c2bb3;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(72, 52, 212, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 /* =========================
-   CARDS GRID (HOLOGRAM STYLE)
+   CARDS GRID (CLEAN CARDS)
 ========================= */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 30px;
+  gap: 15px;
+  margin-top: 35px;
 }
 
 .card {
-  background: rgba(0, 243, 255, 0.05);
-  border-radius: 12px;
-  padding: 6px;
-  border: 1px solid rgba(0, 243, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #fff;
+  border-radius: 18px;
+  padding: 8px;
+  border: 1px solid #edf2f7;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .card img {
   width: 100%;
-  border-radius: 8px;
-  filter: grayscale(40%) contrast(1.2);
+  border-radius: 12px;
+  display: block;
 }
 
 .card:hover {
-  border-color: #00f3ff;
-  background: rgba(0, 243, 255, 0.15);
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.06);
+  border-color: #4834d4;
 }
 
 .card.selected {
-  border-color: #00f3ff;
-  background: rgba(0, 243, 255, 0.2);
-  box-shadow: 0 0 25px rgba(0, 243, 255, 0.4);
-  filter: brightness(1.2);
+  border-color: #4834d4;
+  background: #f0eeff;
+  box-shadow: 0 0 0 3px rgba(72, 52, 212, 0.1);
 }
 
 /* =========================
-   SPINNER (CYBER SCANNER)
+   SPINNER (SOFT PULSE)
 ========================= */
 .spinner {
-  width: 50px;
-  height: 50px;
-  margin: 30px auto;
-  border: 2px solid transparent;
-  border-left: 2px solid #00f3ff;
-  border-right: 2px solid #bd00ff; /* Toque morado */
+  width: 45px;
+  height: 45px;
+  margin: 35px auto;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4834d4;
   border-radius: 50%;
-  animation: spin 1s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -205,8 +204,9 @@ button:hover {
 }
 
 #loadingText {
-  color: #00f3ff;
-  font-family: monospace;
-  font-size: 11px;
-  letter-spacing: 4px;
+  color: #4834d4;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
