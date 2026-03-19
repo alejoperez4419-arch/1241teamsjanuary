@@ -9,8 +9,8 @@ function goToCards() {
     cardsContainer.innerHTML = "";
     selectedCards = [];
 
-    // Cartas normales (1-12)
-    for (let i = 1; i <= 12; i++) {
+    // Cartas normales (1-9)
+    for (let i = 1; i <= 9; i++) {
         let card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `<img src="${i}.png" alt="card ${i}">`;
