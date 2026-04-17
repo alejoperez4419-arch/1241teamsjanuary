@@ -1,5 +1,5 @@
 /* =========================
-   RESET & BASE (EFOOTBALL GAMER STYLE)
+   ESTILO CYBER-PITCH (TECH & NEON)
 ========================= */
 * {
   margin: 0;
@@ -8,53 +8,30 @@
 }
 
 :root {
-  /* Paleta eFootball */
-  --ef-blue-dark: #002d5e;
-  --ef-blue-primary: #004085;
-  --ef-blue-light: #007bff;
-  --ef-yellow-primary: #ffff00; /* Oro/Amarillo */
-  --ef-yellow-bright: #ffff00;
-  --text-main: #f8fafc;
-  --text-muted: #cbd5e1;
-  --bg-dark: #020617; /* Fondo base oscuro */
+  --neon-cyan: #00f2ff;
+  --neon-lime: #ccff00;
+  --deep-navy: #050a15;
+  --panel-bg: #0a1120;
+  --border-glow: rgba(0, 242, 255, 0.3);
+  --text-main: #ffffff;
+  --text-dim: #708090;
 }
 
 body {
-    font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #ffffff00;
-    color: var(--text-main);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
-    position: relative;
-}
-
-/* Glow ambiental suave (Modificado para ser más 'Gamer') */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-body::before {
-  top: -150px;
-  left: -150px;
-  background: rgba(0, 123, 255, 0.3); /* Azul Eléctrico */
-}
-
-body::after {
-  bottom: -150px;
-  right: -150px;
-  background: rgba(255, 215, 0, 0.2); /* Amarillo/Oro */
+  font-family: 'Exo 2', 'Orbitron', sans-serif;
+  background-color: var(--deep-navy);
+  /* Patrón de red de portería / Hexágonos de fondo */
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.05) 0%, transparent 80%),
+    linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -62,299 +39,198 @@ body::after {
 ========================= */
 .container {
   width: 100%;
-  max-width: 440px;
-  padding: 22px;
-  position: relative;
+  max-width: 420px;
+  padding: 20px;
   z-index: 2;
 }
 
 .section {
   display: none;
   flex-direction: column;
-  animation: softReveal 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  /* Animación de escaneo tipo HUD */
+  animation: hudReady 0.4s ease-out forwards;
 }
 
 .section.active {
   display: flex;
 }
 
-.logo {
-  width: 100%;
-  /* Un poco más grande para eFootball logo */
-  margin: 0 auto 25px;
-  /* Sombra dorada sutil */
-  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3));
-  opacity: 1;
-}
-
-@keyframes softReveal {
-  from {
-    opacity: 0;
-    transform: translateY(15px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+@keyframes hudReady {
+  0% { opacity: 0; clip-path: inset(50% 0 50% 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
 }
 
 /* =========================
-   CONTENT BOX (DARK GLASS GAMER)
+   CONTENT BOX (TECH PANEL)
 ========================= */
 .content-box {
-  /* Fondo oscuro traslúcido */
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  /* Borde sutil amarillo */
-  border: 1px solid rgba(255, 215, 0, 0.15);
-  border-radius: 30px; /* Ligeramente más angular */
-  padding: 46px 32px 38px;
-  text-align: center;
+  background: var(--panel-bg);
+  border: 2px solid #1a2c4e;
+  border-left: 4px solid var(--neon-cyan); /* Acento lateral */
+  padding: 40px 25px;
   position: relative;
-  overflow: hidden;
-  /* Sombra azul intensa */
-  box-shadow: 
-    0 20px 50px rgba(0, 45, 94, 0.4),
-    0 10px 15px rgba(0, 0, 0, 0.2),
-    inset 0 0 15px rgba(0, 123, 255, 0.05);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%); /* Esquinas cortadas estilo tech */
 }
 
-/* Borde decorativo superior eFootball */
+/* Adornos en las esquinas */
 .content-box::before {
-  content: "";
+  content: "SYS_v4.0";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  /* Degradado Azul -> Amarillo */
-  background: linear-gradient(90deg, var(--ef-blue-light), var(--ef-yellow-primary), var(--ef-blue-light));
-  opacity: 1;
-}
-
-/* Glow interno decorativo */
-.content-box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* Degradado radial desde arriba con tono azul */
-  background: radial-gradient(circle at 50% -10%, rgba(0, 123, 255, 0.2), transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.content-box > * {
-  position: relative;
-  z-index: 2;
+  top: 10px;
+  right: 15px;
+  font-size: 9px;
+  color: var(--neon-cyan);
+  letter-spacing: 2px;
+  font-family: monospace;
 }
 
 /* =========================
    TITLES & TEXT
 ========================= */
 h2 {
-  font-size: 28px;
-  font-weight: 900; /* Más grueso, estilo gamer */
-  color: #ffffff;
-  margin-bottom: 12px;
-  letter-spacing: -0.8px;
-  line-height: 1.1;
-  text-transform: uppercase; /* Opcional, pero muy gamer */
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  background: linear-gradient(to right, #fff, var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-p {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.6;
-  font-weight: 400;
-  max-width: 320px;
-  margin: 0 auto;
+.badge {
+  background: rgba(0, 242, 255, 0.1);
+  border: 1px solid var(--neon-cyan);
+  padding: 5px 12px;
+  font-size: 10px;
+  color: var(--neon-cyan);
+  margin-bottom: 20px;
+  display: inline-block;
+  align-self: center;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
 }
 
 /* =========================
-   INPUT (GAMER DARK STYLE)
+   INPUTS & BUTTONS
 ========================= */
 input {
   width: 100%;
-  padding: 18px 20px;
-  margin-top: 30px;
-  border-radius: 12px; /* Más cuadrado */
-  /* Fondo oscuro */
-  border: 2px solid rgba(255, 215, 0, 0.1);
-  background: rgba(2, 6, 23, 0.8);
-  color: #ffffff;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
+  background: #0d1a33;
+  border: 1px solid #1a2c4e;
+  padding: 15px;
+  color: var(--neon-cyan);
+  font-family: 'monospace';
+  font-size: 18px;
   text-align: center;
-  transition: all 0.3s ease;
-}
-
-input::placeholder {
-  color: #64748b;
-  font-weight: 400;
+  margin-top: 20px;
+  outline: none;
+  transition: 0.3s;
 }
 
 input:focus {
-  outline: none;
-  /* Borde amarillo neón al enfocar */
-  border-color: var(--ef-yellow-bright);
-  background: #000000;
-  /* Glow amarillo */
-  box-shadow: 
-    0 0 15px rgba(255, 242, 0, 0.2),
-    0 8px 16px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
 }
 
-/* =========================
-   BUTTON (PRIMARY ACTION - YELLOW/GOLD)
-========================= */
 button {
-  margin-top: 26px;
-  width: 100%;
-  padding: 18px 20px;
-  border-radius: 12px;
-  border: none;
-  font-size: 16px;
-  font-weight: 800; /* Más 'bold' */
+  margin-top: 25px;
+  background: transparent;
+  border: 2px solid var(--neon-lime);
+  color: var(--neon-lime);
+  padding: 16px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
   cursor: pointer;
-  /* Fondo Amarillo eFootball */
-  color: var(--ef-blue-dark);
-  background: var(--ef-yellow-primary);
-  transition: all 0.3s ease;
-  /* Sombra dorada intensa */
-  box-shadow: 
-    0 6px 0 var(--ef-yellow-primary), /* Borde 3D */
-    0 10px 20px rgba(255, 215, 0, 0.3);
+  transition: 0.3s;
   position: relative;
   overflow: hidden;
-}
-
-/* Efecto 'Shine' original (se mantiene, pero sobre amarillo) */
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.6), /* Brillo más fuerte */
-    transparent
-  );
-  transition: left 0.7s ease;
-}
-
-button:hover::before {
-  left: 130%;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%);
 }
 
 button:hover {
-  background: var(--ef-yellow-bright);
-  transform: translateY(-2px);
-  box-shadow: 
-    0 8px 0 var(--ef-yellow-primary),
-    0 12px 24px rgba(255, 242, 0, 0.4);
-}
-
-button:active {
-  transform: translateY(4px); /* Efecto presionado */
-  box-shadow: 0 2px 0 var(--ef-yellow-primary);
+  background: var(--neon-lime);
+  color: var(--deep-navy);
+  box-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
 }
 
 /* =========================
-   CARDS GRID (GAMER SELECTOR)
+   CARDS (SELECTOR DE JUGADORES/OBJETOS)
 ========================= */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px; /* Un poco más de espacio */
-  margin-top: 32px;
+  gap: 12px;
+  margin-top: 25px;
 }
 
 .card {
-  /* Fondo oscuro con borde azul sutil */
-  background: rgba(2, 6, 23, 0.5);
-  border-radius: 16px;
-  padding: 8px;
-  border: 2px solid rgba(0, 123, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #0d1a33;
+  border: 1px solid #1a2c4e;
+  padding: 5px;
+  transition: 0.3s;
   position: relative;
 }
 
 .card img {
   width: 100%;
-  display: block;
-  border-radius: 10px;
+  filter: grayscale(40%);
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.03);
-  /* Resaltado azul al pasar el mouse */
-  border-color: var(--ef-blue-light);
-  box-shadow: 0 15px 30px rgba(0, 123, 255, 0.3);
+  border-color: var(--neon-cyan);
+  transform: scale(1.05);
 }
 
-/* Tarjeta Seleccionada (Gamer Style) */
 .card.selected {
-  /* Borde y fondo azul de selección */
-  border-color: var(--ef-yellow-primary);
-  background: rgba(0, 64, 133, 0.3);
-  box-shadow: 
-    0 0 20px rgba(255, 215, 0, 0.4),
-    0 0 0 2px var(--ef-yellow-primary);
-  /* Efecto de pulso (opcional) */
-  animation: cardPulse 1.5s infinite;
+  border-color: var(--neon-lime);
+  background: rgba(204, 255, 0, 0.05);
 }
 
-@keyframes cardPulse {
-  0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.3), 0 0 0 2px var(--ef-yellow-primary); }
-  50% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.5), 0 0 0 2px var(--ef-yellow-primary); }
-  100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.3), 0 0 0 2px var(--ef-yellow-primary); }
+.card.selected img {
+  filter: grayscale(0%);
 }
 
 .card.selected::after {
-  content: "✓";
+  content: "ACTIVE";
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 26px;
-  height: 26px;
-  /* Checkmark amarillo eFootball */
-  background: var(--ef-yellow-primary);
-  color: var(--ef-blue-dark);
-  border-radius: 50%;
-  font-size: 14px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neon-lime);
+  color: var(--deep-navy);
+  font-size: 8px;
+  padding: 2px 6px;
   font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+}
+
+.logo{
+      width: 100%;
 }
 
 /* =========================
-   SPINNER (EFOOTBALL BLUE)
+   SPINNER (RADAR STYLE)
 ========================= */
 .spinner {
-  width: 50px;
-  height: 50px;
-  margin: 30px auto 20px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--neon-cyan);
+  border-bottom: 2px solid var(--neon-cyan);
   border-radius: 50%;
-  /* Borde base oscuro */
-  border: 4px solid rgba(0, 64, 133, 0.2);
-  /* Parte superior Azul Eléctrico */
-  border-top: 4px solid var(--ef-blue-light);
-  /* Glow azul */
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-  animation: spin 0.8s linear infinite; /* Más rápido */
+  margin: 20px auto;
+  position: relative;
+  animation: spin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.spinner::before {
+  content: "";
+  position: absolute;
+  top: 5px; left: 5px; right: 5px; bottom: 5px;
+  border: 1px solid var(--neon-lime);
+  border-radius: 50%;
+  opacity: 0.5;
 }
 
 @keyframes spin {
@@ -362,57 +238,18 @@ button:active {
 }
 
 #loadingText {
-  color: var(--text-muted);
-  font-weight: 800;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  /* Brillo sutil */
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-}
-
-/* =========================
-   SMALL DECORATIVE TAG / STATUS
-========================= */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 auto 18px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  /* Fondo Azul oscuro, Texto Amarillo */
-  background: rgba(0, 64, 133, 0.3);
-  color: var(--ef-yellow-bright);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-}
-
-.badge::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  /* Punto verde neón (Online) */
-  background: #00ff88;
-  box-shadow: 0 0 12px rgba(0, 255, 136, 0.7);
+  font-family: monospace;
+  color: var(--neon-cyan);
+  font-size: 11px;
+  letter-spacing: 4px;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 480px) {
-  .container { padding: 16px; }
-  .content-box { 
-    padding: 40px 24px 30px; 
-    border-radius: 24px; 
+  .content-box {
+    padding: 30px 15px;
   }
-  h2 { font-size: 24px; }
-  input { font-size: 15px; padding: 16px; }
-  button { padding: 16px; font-size: 15px;}
-  .cards-grid { gap: 10px; }
+  h2 { font-size: 20px; }
 }
