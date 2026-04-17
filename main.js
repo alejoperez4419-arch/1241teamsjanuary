@@ -95,7 +95,7 @@ function goToSearching() {
 
                 cardDiv.innerHTML = `
       <img src="${imgName}" alt="reward">
-      <div style="color:black;font-size:18px;margin-top:6px;font-weight:bold;">
+      <div style="color: #ffff00;font-size:18px;margin-top:6px;font-weight:bold;">
         ${amountText}
       </div>
     `;
