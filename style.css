@@ -1,193 +1,208 @@
-/* RESET GENERAL */
+/* =========================
+   RESET & BASE
+========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Russo One', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Russo One', sans-serif;
 }
 
 body {
-    background-color: #e0e7ff; /* Azul muy pálido */
-    color: #1a1a2e;
-    overflow-x: hidden;
+  background: #050a15;
+  color: #fff;
+  overflow: hidden;
 }
 
-/* Fondo con efecto degradado futurista */
+/* =========================
+   FONDO GAMING
+========================= */
 .background-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #cbd5e1 100%);
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f172a, #020617 70%);
+  z-index: -1;
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* SECCIONES */
 .section {
-    display: none;
-    width: 100%;
-    max-width: 500px;
-    animation: fadeIn 0.5s ease-in-out;
+  display: none;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
 }
 
 .section.active {
-    display: block;
+  display: block;
+  animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
-/* CAJA DE CONTENIDO (Glassmorphism claro) */
+/* =========================
+   CAJAS PRINCIPALES
+========================= */
 .content-box {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 
-                0 0 20px rgba(59, 130, 246, 0.2);
+  background: rgba(10, 17, 32, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.2);
 }
 
 .content-box.big {
-    max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
-/* LOGO Y TEXTOS */
+/* =========================
+   LOGO
+========================= */
 .logo {
-    width: 220px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+  width: 160px;
+  margin-bottom: 20px;
 }
 
-h2 {
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #2563eb;
-    letter-spacing: 1px;
+/* =========================
+   INPUT
+========================= */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 16px;
+  background: #020617;
+  color: white;
+  border: 1px solid #00f2ff;
 }
 
-/* INPUTS Y BOTONES */
-input[type="text"] {
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid #cbd5e1;
-    background: rgba(255, 255, 255, 0.9);
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.1rem;
-    outline: none;
-    transition: 0.3s;
-}
-
-input[type="text"]:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-}
-
+/* =========================
+   BOTONES
+========================= */
 button {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    border: none;
-    padding: 15px 35px;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: 0.3s;
-    width: 100%;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00f2ff, #00ff88);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00f2ff;
 }
 
-/* GRILLA DE CARTAS */
+/* =========================
+   GRID DE CARTAS
+========================= */
 .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 15px;
-    margin-bottom: 25px;
-    max-height: 400px;
-    overflow-y: auto;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
 }
 
-/* ESTILO DE CADA CARTA */
+/* =========================
+   CARTAS
+========================= */
 .card {
-    background: #f8fafc;
-    border: 3px solid transparent;
-    border-radius: 12px;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  background: #020617;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 2px solid transparent;
 }
 
 .card img {
-    width: 100%;
-    border-radius: 8px;
+  width: 100%;
+  border-radius: 10px;
 }
 
+/* Hover */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+/* Seleccionada */
 .card.selected {
-    border-color: #3b82f6;
-    background: #eff6ff;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+  border: 2px solid #00ffea;
+  box-shadow: 0 0 20px #00ffea;
+  transform: scale(1.08);
 }
 
-/* SPINNER CARGA */
+/* =========================
+   TEXTO
+========================= */
+h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+/* =========================
+   SPINNER
+========================= */
 .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3b82f6;
-    border-radius: 50%;
-    margin: 20px auto;
-    animation: spin 1s linear infinite;
+  margin: 20px auto;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #0f172a;
+  border-top: 5px solid #00f2ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* RESPONSIVE CELULAR */
-@media (max-width: 480px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cartas por fila en móvil */
-    }
-    
-    .content-box {
-        padding: 20px;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
+/* =========================
+   SCROLL PERSONALIZADO
+========================= */
+.content-box.big::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* Personalización del texto de recompensa (Coins/GP) */
-.card div {
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    color: #1d4ed8 !important; /* Cambiado a azul fuerte para que se vea en fondo claro */
+.content-box.big::-webkit-scrollbar-thumb {
+  background: #00f2ff;
+  border-radius: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+  .content-box {
+    padding: 20px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
