@@ -25,6 +25,7 @@ body {
   height: 100%;
   background: radial-gradient(circle at 20% 20%, #0f172a, #020617 70%);
   z-index: -1;
+  background-image: url(fondo.png);
 }
 
 /* =========================
@@ -75,7 +76,7 @@ body {
    LOGO
 ========================= */
 .logo {
-  width: 160px;
+  width: 100%;
   margin-bottom: 20px;
 }
 
